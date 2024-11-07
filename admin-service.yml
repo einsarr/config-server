@@ -1,11 +1,20 @@
-spring:
-  profiles:
-    active: prod
-  application:
-    name: VOTE-SERVICE
-  jpa:
-    open-in-view: false
 eureka:
   client:
     service-url:
       defaultZone: http://localhost:8761/eureka/
+server:
+  port: 8089
+spring:
+  datasource:
+    url: jdbc:sqlserver://localhost:1433;databaseName=vote_db;encrypt=true;trustServerCertificate=true
+    username: moussa
+    password: P@sser2024
+    driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    open-in-view: false
+    database-platform: org.hibernate.dialect.SQLServerDialect
+  application:
+    name: VOTE-SERVICE
