@@ -1,33 +1,35 @@
-#server:
- # port: 8089
-#spring:
- # datasource:
-  #  url: jdbc:sqlserver://localhost:1433;databaseName=vote_db;encrypt=true;trustServerCertificate=true
-   # username: moussa
-    #password: P@sser2024
-    #driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
-  #jpa:
-   # hibernate:
-    #  ddl-auto: update
-    #show-sql: true
-    #database-platform: org.hibernate.dialect.SQLServerDialect
+spring:
+  profiles:
+    active: dev
+  application:
+    name: ADMIN-SERVICE
+  jpa:
+    open-in-view: false
+  jackson:
+    date-format: yyyy-MM-dd
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: always
+    shutdown:
+      enabled: true
+  info:
+    env:
+      enabled: true
+info:
+  app:
+    name: "Spring Boot Restfull Web Services"
+    description: "Spring Boot Restful Web Services Demo"
+    version: "1.0.0"
+  application:
+    name: ADMIN-SERVICE
+  jpa:
+    open-in-view: false
 eureka:
   client:
     service-url:
       defaultZone: http://localhost:8761/eureka/
-server:
-  port: 8088
-spring:
-  datasource:
-    url: jdbc:sqlserver://localhost:1433;databaseName=vote_db;encrypt=true;trustServerCertificate=true
-    username: moussa
-    password: P@sser2024
-    driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
-  jpa:
-    hibernate:
-      ddl-auto: update
-    show-sql: true
-    open-in-view: false
-    database-platform: org.hibernate.dialect.SQLServerDialect
-  application:
-    name: VOTE-SERVICE
